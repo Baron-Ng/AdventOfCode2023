@@ -18,7 +18,9 @@ public class Day2 {
 
             boolean possible = true;
 
-            
+            int maxR = 0;
+            int maxG = 0;
+            int maxB = 0;
             for (int i = 0; i < cubes.size() && possible; i++){
                 
                 for (int j = 0; j < cubes.get(i).length && possible; j++){
@@ -27,16 +29,16 @@ public class Day2 {
                     String color = set[1];
 
                     if (color.equals("blue")){
-                        if (amount > 14){
-                            possible = false;
+                        if (amount > maxB){
+                            maxB = amount;
                         }
                     } else if (color.equals("green")){
-                        if (amount > 13){
-                            possible = false;
+                        if (amount > maxG){
+                            maxG = amount;
                         }
                     } else if (color.equals("red")){
-                        if (amount > 12){
-                            possible = false;
+                        if (amount > maxR){
+                            maxR = amount;
                         }
                     }
 
@@ -44,7 +46,7 @@ public class Day2 {
                 
             }
             if (possible){
-                sum += game;
+                sum += maxR * maxB * maxG;
             }
         }
 

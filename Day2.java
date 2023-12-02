@@ -9,7 +9,7 @@ public class Day2 {
         int game = 0;
         while (sc.hasNextLine()) {
             game++;
-            String s = sc.nextLine().substring(8);
+            String s = sc.nextLine().split(": ")[1];
             String [] bruh = s.split("; ");
             ArrayList <String[]> cubes = new ArrayList<>();
             for (int i = 0; i < bruh.length; i++){
@@ -18,46 +18,33 @@ public class Day2 {
 
             boolean possible = true;
 
-            for (int i = 0; i < cubes.size(); i++){
+            
+            for (int i = 0; i < cubes.size() && possible; i++){
                 
-                for (int j = 0; j < cubes.get(i).length; j++){
-                    int amount = -1;
-                    try {
-                        amount = Integer.parseInt(cubes.get(i)[j].substring(0, 2));
-                    }
-                    catch (Exception e) {
-                        amount = Integer.parseInt(cubes.get(i)[j].substring(0, 1));
-                    }
-                    String color = cubes.get(i)[j].substring(2);
+                for (int j = 0; j < cubes.get(i).length && possible; j++){
+                    String [] set = cubes.get(i)[j].split(" ");
+                    int amount = Integer.parseInt(set[0]);
+                    String color = set[1];
 
-                    System.out.println (color + " " + amount);
-                    if (color.contains("blue")){
-                        if (amount > 12){
-                            possible = false;
-                            break;
-                        }
-                    } else if (color.contains("green")){
-                        if (amount > 13){
-                            possible = false;
-                            break;
-                        }
-                    } else if (color.contains("red")){
+                    if (color.equals("blue")){
                         if (amount > 14){
                             possible = false;
-                            break;
+                        }
+                    } else if (color.equals("green")){
+                        if (amount > 13){
+                            possible = false;
+                        }
+                    } else if (color.equals("red")){
+                        if (amount > 12){
+                            possible = false;
                         }
                     }
 
-                }
-
-                if (!possible){
-                    break;
                 }
                 
             }
             if (possible){
                 sum += game;
-                System.out.println(game);
             }
         }
 

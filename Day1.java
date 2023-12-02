@@ -74,111 +74,35 @@ public class Day1{
                 five = s.substring(i, i + 5);
             }
 
-            if (!b){
-                if (three.equals("one")){
-                    end += 1;
-                    i += 2;
-                    b = true;
-                } else if (three.equals("two")){
-                    end += 2;
-                    i += 2;
-                    b = true;
-                } else if (five.equals("three")){
-                    end += 3;
-                    i += 4;
-                    b = true;
-                } else if (four.equals("four")){
-                    end += 4;
-                    i += 3;
-                    b = true;
-                } else if (four.equals("five")){
-                    end += 5;
-                    i += 3;
-                    b = true;
-                } else if (three.equals("six")){
-                    end += 6;
-                    i += 2;
-                    b = true;
-                } else if (five.equals("seven")){
-                    end += 7;
-                    i += 4;
-                    b = true;
-                } else if (five.equals("eight")){
-                    end += 8;
-                    i += 4;
-                    b = true;
-                } else if (four.equals("nine")){
-                    end += 9;
-                    i += 3;
-                    b = true;
-                }
+            if (three.equals("one")){
+                end += 1;
+                b = true;
+            } else if (three.equals("two")){
+                end += 2;
+                b = true;
+            } else if (five.equals("three")){
+                end += 3;
+                b = true;
+            } else if (four.equals("four")){
+                end += 4;
+                b = true;
+            } else if (four.equals("five")){
+                end += 5;
+                b = true;
+            } else if (three.equals("six")){
+                end += 6;
+                b = true;
+            } else if (five.equals("seven")){
+                end += 7;
+                b = true;
+            } else if (five.equals("eight")){
+                end += 8;
+                b = true;
+            } else if (four.equals("nine")){
+                end += 9;
+                b = true;
             } else {
-                end += s.charAt(i); 
-            }
-        }
-
-        s = end;
-        end = "";
-        b = false;
-        
-        for (int i = s.length() - 1; i > -1; i--){
-
-            String three = "";
-            String four = "";
-            String five = "";
-
-            if (i < s.length() - 2){
-                three = s.substring(i, i + 3);
-            }
-
-            if (i < s.length() - 3){
-                four = s.substring(i, i + 4);
-            }
-
-            if (i < s.length() - 4){
-                five = s.substring(i, i + 5);
-            }
-
-            if (!b){
-                if (three.equals("one")){
-                    end += 1;
-                    i -= 2;
-                    b = true;
-                } else if (three.equals("two")){
-                    end += 2;
-                    i -= 2;
-                    b = true;
-                } else if (five.equals("three")){
-                    end += 3;
-                    i -= 4;
-                    b = true;
-                } else if (four.equals("four")){
-                    end += 4;
-                    i -= 3;
-                    b = true;
-                } else if (four.equals("five")){
-                    end += 5;
-                    i -= 3;
-                    b = true;
-                } else if (three.equals("six")){
-                    end += 6;
-                    i -= 2;
-                    b = true;
-                } else if (five.equals("seven")){
-                    end += 7;
-                    i -= 4;
-                    b = true;
-                } else if (five.equals("eight")){
-                    end += 8;
-                    i -= 4;
-                    b = true;
-                } else if (four.equals("nine")){
-                    end += 9;
-                    i -= 3;
-                    b = true;
-                }
-            } else {
-                end += s.charAt(i); 
+            end += s.charAt(i); 
             }
         }
 
